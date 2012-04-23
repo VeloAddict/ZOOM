@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		<meta charset="UTF-8" />
+		<title>ZOOM - jQuery photo gallery plugin | gurde</title>
+		<style type="text/css">
+		body {
+			overflow-y: scroll;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+			background: #f4f4f4;
+			padding: 0;
+			margin: 0;
+		}
+		h3 {
+			line-height: 32px;
+			font-weight: normal;
+			text-transform: capitalize;
+			margin-bottom: 25px;
+		}
+		h3 a {
+			color: #000000;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		
+		.clear { clear: both;  }
+
+		.container {
+			width: 465px;
+			padding: 20px;
+			margin: 0 auto;
+		}
+
+		.gallery {
+			float: left;
+		}
+		.gallery li {
+			float: left;
+			padding: 0 10px 10px 0;
+		}
+		.gallery li:nth-child(6n) {
+			padding-right: 0;
+		}
+		.gallery li a,
+		.gallery li img {
+			float: left;
+		}
+		.gallery { list-style-type: none; float: left; padding: 0; margin: 0; }
+		.gallery li { float: left; }
+		</style>
+		<link rel="stylesheet" type="text/css" media="all"  href="css/zoom.css" />
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/zoom.js"></script>
+	</head>
+	<body>
+
+<div class="container">
+	<h3>Images</h3>
+	<ul class="gallery">
+		<li><a href="img/gallery/DSC_0008-660x441.jpg"><img src="img/gallery/DSC_0008-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0014-660x441.jpg"><img src="img/gallery/DSC_0014-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0019-660x441.jpg"><img src="img/gallery/DSC_0019-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0061-660x441.jpg"><img src="img/gallery/DSC_0061-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0063-441x660.jpg"><img src="img/gallery/DSC_0063-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0090-660x441.jpg"><img src="img/gallery/DSC_0090-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0091-660x441.jpg"><img src="img/gallery/DSC_0091-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0161-660x441.jpg"><img src="img/gallery/DSC_0161-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0163-660x441.jpg"><img src="img/gallery/DSC_0163-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0187-660x441.jpg"><img src="img/gallery/DSC_0187-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0220-660x441.jpg"><img src="img/gallery/DSC_0220-69x69.jpg" /></a></li>
+		<li><a href="img/gallery/DSC_0222-660x441.jpg"><img src="img/gallery/DSC_0222-69x69.jpg" /></a></li>
+	</ul>
+	<div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	$.zoom();
+});
+</script>
+
+	</body>
+</html>
