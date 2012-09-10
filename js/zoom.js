@@ -4,10 +4,13 @@
 		var zoom = $('#zoom'),
 		    zoomContent = $('#zoom .content'),
 		    zoomedIn = false,
-		    openedImage = null;
+		    openedImage = null,
+		    windowWidth = $(window).width(),
+		    windowHeight = $(window).height();
 		
 		zoom.hide();
 		bindNavigation();
+		binChangeImageDimensions();
 		
 		function bindNavigation() {
 			zoom.on('click', function(event) {
@@ -32,6 +35,10 @@
 			if ($('.gallery li a').length == 1)
 				$('.gallery li a')[0].addClass('zoom');
 			$('.zoom, .gallery li a').on('click', open);
+		}
+		
+		function binChangeImageDimensions() {
+			$(window).on('resize', changeImageDimensions);
 		}
 		
 		function open(event) {
@@ -77,18 +84,33 @@
 		}
 		
 		function render() {
-			var image = $(this);
-			if (image.width() == zoomContent.width() && image.height() == zoomContent.height()) {
+			var image = $(this),
+			    borderWidth = parseInt(zoomContent.css('borderLeftWidth')),
+			    maxImageWidth = windowWidth - (borderWidth * 2),
+			    maxImageHeight = windowHeight - (borderWidth * 2),
+			    imageWidth = image.width(),
+			    imageHeight = image.height();
+			if (imageWidth == zoomContent.width() && imageWidth <= maxImageWidth && imageHeight == zoomContent.height() && imageHeight <= maxImageHeight) {
 					show(image);
 					return;
 			}
-			var borderWidth = parseInt(zoomContent.css('borderLeftWidth'));
+			if (imageWidth > maxImageWidth || imageHeight > maxImageHeight) {
+				var desiredHeight = maxImageHeight < imageHeight ? maxImageHeight : imageHeight,
+				    desiredWidth  = maxImageWidth  < imageWidth  ? maxImageWidth  : imageWidth;
+				if ( desiredHeight / imageHeight <= desiredWidth / imageWidth ) {
+					image.width(imageWidth * desiredHeight / imageHeight);
+					image.height(desiredHeight);
+				} else {
+					image.width(desiredWidth);
+					image.height(imageHeight * desiredWidth / imageWidth);
+				}
+			}
 			zoomContent.animate({
 				width: image.width(),
 				height: image.height(),
 				marginTop: -(image.height() / 2) - borderWidth,
 				marginLeft: -(image.width() / 2) - borderWidth
-			}, 300, function(){
+			}, 200, function(){
 				show(image);
 			});
 			
@@ -103,6 +125,11 @@
 			openedImage = null;
 			zoom.hide();
 			zoomContent.empty();
+		}
+		
+		function changeImageDimensions() {
+			windowWidth = $(window).width();
+			windowHeight = $(window).height();
 		}
 	};
 })(jQuery);
