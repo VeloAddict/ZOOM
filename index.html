@@ -2,8 +2,7 @@
 <html dir="ltr" lang="en-US">
 	<head>
 		<meta charset="UTF-8" />
-		<title>ZOOM - jQuery photo gallery plugin | gurde</title>
-		<meta name="description" content="ZOOM - jQuery photo gallery plugin" />
+		<title>ZOOM - jQuery Photo Gallery Plugin</title>
 		<style type="text/css">
 		body {
 			overflow-y: scroll;
@@ -12,29 +11,42 @@
 			padding: 0;
 			margin: 0;
 		}
-		h3 {
+		h1 {
 			line-height: 32px;
 			font-weight: normal;
+			text-align: center;
 			text-transform: capitalize;
 			margin-bottom: 25px;
 		}
-		h3 a {
-			color: #000000;
-		}
 		a:hover {
 			text-decoration: none;
+		}
+		pre {
+			overflow-x: scroll;
+			background: #ffffff;
+			border: 1px solid #cecece;
+			padding: 10px;
 		}
 		
 		.clear { clear: both;  }
 
 		.container {
-			width: 465px;
-			padding: 20px;
+			width: 505px;
 			margin: 0 auto;
 		}
 
 		.gallery {
+			list-style-type: none;
 			float: left;
+			background: #ffffff;
+			padding: 20px 20px 10px 20px;
+			margin: 0;
+			-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+			-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+			box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
 		}
 		.gallery li {
 			float: left;
@@ -47,17 +59,14 @@
 		.gallery li img {
 			float: left;
 		}
-		.gallery { list-style-type: none; float: left; padding: 0; margin: 0; }
-		.gallery li { float: left; }
 		</style>
-		<link rel="stylesheet" type="text/css" media="all"  href="css/zoom.css" />
-		<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
-		<script type="text/javascript" src="js/zoom.min.js"></script>
+		<link rel="stylesheet"  href="css/zoom.css" media="all" />
 	</head>
 	<body>
 
+<h1>ZOOM - jQuery Photo Gallery Plugin</h1>
+
 <div class="container">
-	<h3>Images</h3>
 	<ul class="gallery">
 		<li><a href="img/gallery/DSC_0008-660x441.jpg"><img src="img/gallery/DSC_0008-69x69.jpg" /></a></li>
 		<li><a href="img/gallery/DSC_0014-660x441.jpg"><img src="img/gallery/DSC_0014-69x69.jpg" /></a></li>
@@ -73,9 +82,56 @@
 		<li><a href="img/gallery/DSC_0222-660x441.jpg"><img src="img/gallery/DSC_0222-69x69.jpg" /></a></li>
 	</ul>
 	<div class="clear"></div>
+	
+	<h4>Features:</h4>
+	<ul>
+		<li>easy to install and use</li>
+		<li>slim design</li>
+		<li>animated transition when changing between images</li>
+		<li>keyboard shortcuts: arrows for previous/next image and escape for close</li>
+		<li>images resize to fit the screen</li>
+		<li>compatible with mobile devices</li>
+	</ul>
+	
+	<h4>How to use</h4>
+	<p>Include the stylesheet and javascript into the header:</p>
+	<pre>&lt;!DOCTYPE html&gt;
+&lt;html dir="ltr" lang="en-US"&gt;
+  &lt;head&gt;
+    
+    &lt;link rel="stylesheet" href="css/zoom.css" media="all" /&gt;
+    &lt;script src="js/jquery-1.8.2.min.js"&gt;&lt;/script&gt;
+    &lt;script src="js/zoom.js"&gt;&lt;/script&gt;
+    
+  &lt;/head&gt;
+  &lt;body&gt;
+  
+	</pre>
+	
+	<p>Add the images (class <strong>gallery</strong> required, style as desired):</p>
+	<pre>&lt;ul class="gallery"&gt;
+  &lt;li&gt;&lt;a href="path/to/large1.jpg"&gt;&lt;img src="path/to/thumbnail1.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="path/to/large2.jpg"&gt;&lt;img src="path/to/thumbnail2.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="path/to/large3.jpg"&gt;&lt;img src="path/to/thumbnail3.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="path/to/large4.jpg"&gt;&lt;img src="path/to/thumbnail4.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+	</pre>
+
+	<p>Initialize the gallery:</p>
+	<pre>&lt;script&gt;
+$(function() {
+  $.zoom();
+});
+&lt;/script&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+	</pre>
 </div>
 
-<script type="text/javascript">
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/zoom.min.js"></script>
+<script>
 $(function() {
 	$.zoom();
 });
