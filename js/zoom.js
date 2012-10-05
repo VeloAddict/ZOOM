@@ -10,7 +10,8 @@
 		
 		zoom.hide();
 		bindNavigation();
-		binChangeImageDimensions();
+		bindChangeImageDimensions();
+		bindScrollControl();
 		
 		function bindNavigation() {
 			zoom.on('click', function(event) {
@@ -37,8 +38,14 @@
 			$('.zoom, .gallery li a').on('click', open);
 		}
 		
-		function binChangeImageDimensions() {
+		function bindChangeImageDimensions() {
 			$(window).on('resize', changeImageDimensions);
+		}
+		
+		function bindScrollControl() {
+			$(window).on('mousewheel', function(event) {
+  				if ($('body').hasClass('zoomed')) event.preventDefault();
+			});
 		}
 		
 		function open(event) {
@@ -55,6 +62,7 @@
 			if (!zoomedIn) {
 				zoomedIn = true;
 				zoom.show();
+				$('body').addClass('zoomed');
 			}
 			zoomContent.empty().prepend(image);
 			image.load(render).attr('src', src);
@@ -124,6 +132,7 @@
 			zoomedIn = false;
 			openedImage = null;
 			zoom.hide();
+			$('body').removeClass('zoomed');
 			zoomContent.empty();
 		}
 		
