@@ -61,12 +61,13 @@
 #zoom .next {
 	z-index: 99992;
 	position: absolute;
-	top: 0;
+	top: 50%;
 	overflow: hidden;
 	display: block;
 	width: 49px;
 	height: 49px;
 	text-indent: -100%;
+	margin-top: -25px;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
 	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
@@ -75,11 +76,11 @@
 	border-radius: 2px;
 }
 #zoom .previous {
-	right: 100px;
+	left: 0;
 	background: url('../img/icons/arrows.png') no-repeat 0 0;
 }
 #zoom .next {
-	right: 50px;
+	right: 0;
 	background: url('../img/icons/arrows.png') no-repeat 100% 0;
 }
 #zoom .close:hover {
