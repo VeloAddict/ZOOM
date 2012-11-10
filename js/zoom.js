@@ -25,6 +25,8 @@
 			$(document).keydown(function(event) {
 				if (!openedImage)
 					return;
+				if (event.which == 38 || event.which == 40)
+					event.preventDefault();
 				if (event.which == 27)
 					close();
 				if (event.which == 37)
@@ -44,7 +46,8 @@
 		
 		function bindScrollControl() {
 			$(window).on('mousewheel', function(event) {
-  				if ($('body').hasClass('zoomed')) event.preventDefault();
+  			if (openedImage)
+					event.preventDefault();
 			});
 		}
 		
