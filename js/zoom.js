@@ -1,6 +1,6 @@
 (function($) {
 	$.zoom = function() {
-		$('body').append('<div id="zoom"><a class="close"></a><a href="#previous" class="previous">Previous</a><a href="#next" class="next">Next</a><div class="content"></div></div>');
+		$('body').append('<div id="zoom"><a class="close"></a><a href="#previous" class="previous"></a><a href="#next" class="next"></a><div class="content loading"></div></div>');
 		var zoom = $('#zoom'),
 		    zoomContent = $('#zoom .content'),
 		    zoomedIn = false,
@@ -29,9 +29,9 @@
 					event.preventDefault();
 				if (event.which == 27)
 					close();
-				if (event.which == 37)
+				if (event.which == 37 && !openedImage.hasClass('zoom'))
 					openPrevious();
-				if (event.which == 39)
+				if (event.which == 39 && !openedImage.hasClass('zoom'))
 					openNext();
 			});
 			
@@ -45,9 +45,11 @@
 		}
 		
 		function bindScrollControl() {
-			$(window).on('mousewheel', function(event) {
-  			if (openedImage)
-					event.preventDefault();
+			$(window).on('mousewheel DOMMouseScroll', function(event) {
+  			if (!openedImage) return;
+				event.stopPropagation();
+				event.preventDefault();
+				event.cancelBubble = false;
 			});
 		}
 		
@@ -67,27 +69,19 @@
 				zoom.show();
 				$('body').addClass('zoomed');
 			}
-			zoomContent.empty().prepend(image);
+			zoomContent.html(image).delay(500).addClass('loading');
 			image.load(render).attr('src', src);
 			openedImage = link;
 		}
 		
-		function openPrevious(event) {
-			if (event)
-				event.preventDefault();
-			if (openedImage.hasClass('zoom'))
-				return;
+		function openPrevious() {
 			var prev = openedImage.parent('li').prev();
 			if (prev.length == 0)
 				prev = $('.gallery li:last-child');
 			prev.find('a').trigger('click');
 		}
 		
-		function openNext(event) {
-			if (event)
-				event.preventDefault();
-			if (openedImage.hasClass('zoom'))
-				return;
+		function openNext() {
 			var next = openedImage.parent('li').next();
 			if (next.length == 0)
 				next = $('.gallery li:first-child');
@@ -126,7 +120,8 @@
 			});
 			
 			function show(image) {
-				image.fadeIn('fast');
+				image.show();
+				zoomContent.removeClass('loading');
 			}
 		}
 		

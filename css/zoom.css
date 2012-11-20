@@ -17,7 +17,7 @@
 	left: 50%;
 	width: 200px;
 	height: 200px;
-	background: #ffffff url('../img/loading.gif') no-repeat 50% 50%;
+	background: #ffffff no-repeat 50% 50%;
 	border: 20px solid #ececec;
 	padding: 0;
 	margin: -100px 0 0 -100px;
@@ -27,6 +27,9 @@
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+}
+#zoom .content.loading {
+	background-image: url('../img/loading.gif');
 }
 #zoom img {
 	display: block;
@@ -66,7 +69,6 @@
 	display: block;
 	width: 49px;
 	height: 49px;
-	text-indent: -100%;
 	margin-top: -25px;
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
