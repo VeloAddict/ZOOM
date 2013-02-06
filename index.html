@@ -15,7 +15,6 @@
 			font-size: 31px;
 			line-height: 32px;
 			font-weight: normal;
-			text-align: center;
 			margin-bottom: 25px;
 		}
 		a,
@@ -76,7 +75,7 @@
 	<body>
 
 <div class="container">
-	<h1>ZOOM - jQuery Photo Gallery Plugin</h1>
+	<h1>ZOOM - jQuery photo gallery plugin</h1>
 	<ul class="gallery">
 		<li><a href="img/gallery/DSC_0008-660x441.jpg"><img src="img/gallery/DSC_0008-69x69.jpg" /></a></li>
 		<li><a href="img/gallery/DSC_0014-660x441.jpg"><img src="img/gallery/DSC_0014-69x69.jpg" /></a></li>
@@ -104,44 +103,31 @@
 	</ul>
 	
 	<h4>How to use</h4>
-	<p>Include the stylesheet and javascript into the header:</p>
+	<p>Include the stylesheet and javascript into the header and add the images (class <strong>gallery</strong> required, style as desired):</p>
 	<pre>&lt;!DOCTYPE html&gt;
 &lt;html dir="ltr" lang="en-US"&gt;
   &lt;head&gt;
     
     &lt;link rel="stylesheet" href="css/zoom.css" media="all" /&gt;
-    &lt;script src="js/jquery-1.8.3.min.js"&gt;&lt;/script&gt;
-    &lt;script src="js/zoom.js"&gt;&lt;/script&gt;
+    &lt;script src="js/jquery-1.9.1.min.js"&gt;&lt;/script&gt;
+    &lt;script src="js/zoom.min.js"&gt;&lt;/script&gt;
     
   &lt;/head&gt;
-  &lt;body&gt;</pre>
-	
-	<p>Add the images (class <strong>gallery</strong> required, style as desired):</p>
-	<pre>&lt;ul class="gallery"&gt;
-  &lt;li&gt;&lt;a href="path/to/large1.jpg"&gt;&lt;img src="path/to/thumbnail1.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="path/to/large2.jpg"&gt;&lt;img src="path/to/thumbnail2.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="path/to/large3.jpg"&gt;&lt;img src="path/to/thumbnail3.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="path/to/large4.jpg"&gt;&lt;img src="path/to/thumbnail4.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</pre>
+  &lt;body&gt;
 
-	<p>Initialize the gallery:</p>
-	<pre>&lt;script&gt;
-$(function() {
-  $.zoom();
-});
-&lt;/script&gt;
+  &lt;ul class="gallery"&gt;
+    &lt;li&gt;&lt;a href="path/to/large1.jpg"&gt;&lt;img src="path/to/thumbnail1.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="path/to/large2.jpg"&gt;&lt;img src="path/to/thumbnail2.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="path/to/large3.jpg"&gt;&lt;img src="path/to/thumbnail3.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="path/to/large4.jpg"&gt;&lt;img src="path/to/thumbnail4.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
 
   &lt;/body&gt;
 &lt;/html&gt;</pre>
 </div>
 
-<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
 <script src="js/zoom.min.js"></script>
-<script>
-$(function() {
-	$.zoom();
-});
-</script>
 
 	</body>
 </html>
