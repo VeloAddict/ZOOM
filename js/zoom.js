@@ -67,16 +67,16 @@
 	}
 	
 	function openPrevious() {
-		var prev = openedImage.parent('li').prev();
+		var prev = openedImage.parent('div').prev();
 		if (prev.length == 0)
-			prev = $('.gallery li:last-child');
+			prev = $('.gallery div:last-child');
 		prev.find('a').trigger('click');
 	}
 	
 	function openNext() {
-		var next = openedImage.parent('li').next();
+		var next = openedImage.parent('div').next();
 		if (next.length == 0)
-			next = $('.gallery li:first-child');
+			next = $('.gallery div:first-child');
 		next.children('a').trigger('click');
 	}
 		
@@ -117,9 +117,9 @@
 				openNext();
 		});
 
-		if ($('.gallery li a').length == 1)
-			$('.gallery li a')[0].addClass('zoom');
-		$('.zoom, .gallery li a').on('click', open);
+		if ($('.gallery a').length == 1)
+			$('.gallery a')[0].addClass('zoom');
+		$('.zoom, .gallery a').on('click', open);
 	})();
 
 	(function bindChangeImageDimensions() {

@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en-US">
 	<head>
 		<meta charset="UTF-8" />
-		<title>ZOOM - jQuery Photo Gallery Plugin</title>
+		<title>ZOOM - jQuery photo gallery plugin</title>
 		<style type="text/css">
 		body {
 			overflow-y: scroll;
@@ -46,7 +46,6 @@
 		}
 		
 		.gallery {
-			list-style-type: none;
 			float: left;
 			background: #ffffff;
 			padding: 20px 20px 10px 20px;
@@ -58,15 +57,15 @@
 			-moz-border-radius: 2px;
 			border-radius: 2px;
 		}
-		.gallery li {
+		.gallery div {
 			float: left;
 			padding: 0 10px 10px 0;
 		}
-		.gallery li:nth-child(6n) {
+		.gallery div:nth-child(6n) {
 			padding-right: 0;
 		}
-		.gallery li a,
-		.gallery li img {
+		.gallery a,
+		.gallery img {
 			float: left;
 		}
 		</style>
@@ -76,20 +75,20 @@
 
 <div class="container">
 	<h1>ZOOM - jQuery photo gallery plugin</h1>
-	<ul class="gallery">
-		<li><a href="img/gallery/DSC_0008-660x441.jpg"><img src="img/gallery/DSC_0008-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0014-660x441.jpg"><img src="img/gallery/DSC_0014-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0019-660x441.jpg"><img src="img/gallery/DSC_0019-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0061-660x441.jpg"><img src="img/gallery/DSC_0061-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0063-441x660.jpg"><img src="img/gallery/DSC_0063-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0090-660x441.jpg"><img src="img/gallery/DSC_0090-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0091-660x441.jpg"><img src="img/gallery/DSC_0091-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0161-660x441.jpg"><img src="img/gallery/DSC_0161-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0163-660x441.jpg"><img src="img/gallery/DSC_0163-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0187-660x441.jpg"><img src="img/gallery/DSC_0187-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0220-660x441.jpg"><img src="img/gallery/DSC_0220-69x69.jpg" /></a></li>
-		<li><a href="img/gallery/DSC_0222-660x441.jpg"><img src="img/gallery/DSC_0222-69x69.jpg" /></a></li>
-	</ul>
+	<div class="gallery">
+		<div><a href="img/gallery/DSC_0008-660x441.jpg"><img src="img/gallery/DSC_0008-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0014-660x441.jpg"><img src="img/gallery/DSC_0014-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0019-660x441.jpg"><img src="img/gallery/DSC_0019-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0061-660x441.jpg"><img src="img/gallery/DSC_0061-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0063-441x660.jpg"><img src="img/gallery/DSC_0063-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0090-660x441.jpg"><img src="img/gallery/DSC_0090-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0091-660x441.jpg"><img src="img/gallery/DSC_0091-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0161-660x441.jpg"><img src="img/gallery/DSC_0161-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0163-660x441.jpg"><img src="img/gallery/DSC_0163-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0187-660x441.jpg"><img src="img/gallery/DSC_0187-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0220-660x441.jpg"><img src="img/gallery/DSC_0220-69x69.jpg" /></a></div>
+		<div><a href="img/gallery/DSC_0222-660x441.jpg"><img src="img/gallery/DSC_0222-69x69.jpg" /></a></div>
+	</div>
 	<div class="clear"></div>
 	
 	<h4>Features:</h4>
@@ -109,24 +108,24 @@
   &lt;head&gt;
     
     &lt;link rel="stylesheet" href="css/zoom.css" media="all" /&gt;
-    &lt;script src="js/jquery-1.9.1.min.js"&gt;&lt;/script&gt;
+    &lt;script src="js/jquery-2.0.3.min.js"&gt;&lt;/script&gt;
     &lt;script src="js/zoom.min.js"&gt;&lt;/script&gt;
     
   &lt;/head&gt;
   &lt;body&gt;
 
-  &lt;ul class="gallery"&gt;
-    &lt;li&gt;&lt;a href="path/to/large1.jpg"&gt;&lt;img src="path/to/thumbnail1.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="path/to/large2.jpg"&gt;&lt;img src="path/to/thumbnail2.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="path/to/large3.jpg"&gt;&lt;img src="path/to/thumbnail3.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="path/to/large4.jpg"&gt;&lt;img src="path/to/thumbnail4.jpg" /&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
+  &lt;div class="gallery"&gt;
+    &lt;div&gt;&lt;a href="path/to/large1.jpg"&gt;&lt;img src="path/to/thumbnail1.jpg" /&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;a href="path/to/large2.jpg"&gt;&lt;img src="path/to/thumbnail2.jpg" /&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;a href="path/to/large3.jpg"&gt;&lt;img src="path/to/thumbnail3.jpg" /&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;a href="path/to/large4.jpg"&gt;&lt;img src="path/to/thumbnail4.jpg" /&gt;&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
 
   &lt;/body&gt;
 &lt;/html&gt;</pre>
 </div>
 
-<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
 <script src="js/zoom.min.js"></script>
 
 	</body>
