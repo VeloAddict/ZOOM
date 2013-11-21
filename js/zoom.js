@@ -3,6 +3,7 @@
 
 	var zoom = $('#zoom').hide(),
 	    zoomContent = $('#zoom .content'),
+	    overlay = '<div class="overlay"></div>',
 	    zoomedIn = false,
 	    openedImage = null,
 	    windowWidth = $(window).width(),
@@ -17,8 +18,7 @@
 		if (!src) {
 			return;
 		}
-		var overlay = '<div class="overlay"></div>',
-		    image = $(new Image()).hide();
+		var image = $(new Image()).hide();
 		$('#zoom .previous, #zoom .next').show();
 		if (link.hasClass('zoom')) {
 			$('#zoom .previous, #zoom .next').hide();
@@ -28,7 +28,8 @@
 			zoom.show();
 			$('body').addClass('zoomed');
 		}
-		zoomContent.html(overlay + image).delay(500).addClass('loading');
+		zoomContent.html(image).delay(500).addClass('loading');
+		zoomContent.add(overlay);
 		image.load(render).attr('src', src);
 		openedImage = link;
 		
