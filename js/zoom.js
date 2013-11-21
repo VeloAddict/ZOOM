@@ -9,22 +9,26 @@
 	    windowHeight = $(window).height();
 		
 	function open(event) {
-		if (event)
+		if (event) {
 			event.preventDefault();
+		}
 		var link = $(this),
 		    src = link.attr('href');
-		if (!src)
+		if (!src) {
 			return;
-		var image = $(new Image()).hide();
+		}
+		var overlay = '<div class="overlay"></div>',
+		    image = $(new Image()).hide();
 		$('#zoom .previous, #zoom .next').show();
-		if (link.hasClass('zoom'))
+		if (link.hasClass('zoom')) {
 			$('#zoom .previous, #zoom .next').hide();
+		}
 		if (!zoomedIn) {
 			zoomedIn = true;
 			zoom.show();
 			$('body').addClass('zoomed');
 		}
-		zoomContent.html(image).delay(500).addClass('loading');
+		zoomContent.html(overlay + image).delay(500).addClass('loading');
 		image.load(render).attr('src', src);
 		openedImage = link;
 		
@@ -68,21 +72,24 @@
 	
 	function openPrevious() {
 		var prev = openedImage.parent('div').prev();
-		if (prev.length == 0)
+		if (prev.length == 0) {
 			prev = $('.gallery div:last-child');
+		}
 		prev.find('a').trigger('click');
 	}
 	
 	function openNext() {
 		var next = openedImage.parent('div').next();
-		if (next.length == 0)
+		if (next.length == 0) {
 			next = $('.gallery div:first-child');
+		}
 		next.children('a').trigger('click');
 	}
 		
 	function close(event) {
-		if (event)
+		if (event) {
 			event.preventDefault();
+		}
 		zoomedIn = false;
 		openedImage = null;
 		zoom.hide();
@@ -98,27 +105,35 @@
 	(function bindNavigation() {
 		zoom.on('click', function(event) {
 			event.preventDefault();
-			if ($(event.target).attr('id') == 'zoom')
+			if ($(event.target).attr('id') == 'zoom') {
 				close();
+			}
 		});
 		
 		$('#zoom .close').on('click', close);
 		$('#zoom .previous').on('click', openPrevious);
 		$('#zoom .next').on('click', openNext);
 		$(document).keydown(function(event) {
-			if (!openedImage) return;
-			if (event.which == 38 || event.which == 40)
+			if (!openedImage) {
+				return;
+			}
+			if (event.which == 38 || event.which == 40) {
 				event.preventDefault();
-			if (event.which == 27)
+			}
+			if (event.which == 27) {
 				close();
-			if (event.which == 37 && !openedImage.hasClass('zoom'))
+			}
+			if (event.which == 37 && !openedImage.hasClass('zoom')) {
 				openPrevious();
-			if (event.which == 39 && !openedImage.hasClass('zoom'))
+			}
+			if (event.which == 39 && !openedImage.hasClass('zoom')) {
 				openNext();
+			}
 		});
 
-		if ($('.gallery a').length == 1)
+		if ($('.gallery a').length == 1) {
 			$('.gallery a')[0].addClass('zoom');
+		}
 		$('.zoom, .gallery a').on('click', open);
 	})();
 
@@ -128,8 +143,9 @@
 
 	(function bindScrollControl() {
 		$(window).on('mousewheel DOMMouseScroll', function(event) {
-			if (!openedImage)
+			if (!openedImage) {
 				return;
+			}
 			event.stopPropagation();
 			event.preventDefault();
 			event.cancelBubble = false;
