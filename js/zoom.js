@@ -29,7 +29,7 @@
 			$('body').addClass('zoomed');
 		}
 		zoomContent.html(image).delay(500).addClass('loading');
-		zoomContent.add(overlay);
+		zoomContent.prepend(overlay);
 		image.load(render).attr('src', src);
 		openedImage = link;
 		
