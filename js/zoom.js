@@ -48,11 +48,11 @@
 				var desiredHeight = maxImageHeight < imageHeight ? maxImageHeight : imageHeight,
 				    desiredWidth  = maxImageWidth  < imageWidth  ? maxImageWidth  : imageWidth;
 				if ( desiredHeight / imageHeight <= desiredWidth / imageWidth ) {
-					image.width(imageWidth * desiredHeight / imageHeight);
+					image.width(Math.round(imageWidth * desiredHeight / imageHeight));
 					image.height(desiredHeight);
 				} else {
 					image.width(desiredWidth);
-					image.height(imageHeight * desiredWidth / imageWidth);
+					image.height(Math.round(imageHeight * desiredWidth / imageWidth));
 				}
 			}
 			zoomContent.animate({
