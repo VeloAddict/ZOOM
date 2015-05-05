@@ -1,5 +1,6 @@
 (function($) {
-	$('body').append('<div id="zoom"><a class="close"></a><a href="#previous" class="previous"></a><a href="#next" class="next"></a><div class="content loading"></div></div>');
+	var body = $('body');
+	body.append('<div id="zoom"><a class="close"></a><a href="#previous" class="previous"></a><a href="#next" class="next"></a><div class="content loading"></div></div>');
 
 	var zoom = $('#zoom').hide(),
 	    zoomContent = $('#zoom .content'),
@@ -18,7 +19,6 @@
 		if (!src) {
 			return;
 		}
-		var image = $(new Image()).hide();
 		$('#zoom .previous, #zoom .next').show();
 		if (link.hasClass('zoom')) {
 			$('#zoom .previous, #zoom .next').hide();
@@ -26,9 +26,11 @@
 		if (!zoomedIn) {
 			zoomedIn = true;
 			zoom.show();
-			$('body').addClass('zoomed');
+			body.addClass('zoomed');
 		}
-		zoomContent.html(image).delay(500).addClass('loading');
+		var image = $(new Image()).hide().css({width: 'auto'});
+		body.append(image);
+		zoomContent.html('').delay(500).addClass('loading');
 		zoomContent.prepend(overlay);
 		image.load(render).attr('src', src);
 		openedImage = link;
@@ -60,11 +62,12 @@
 				height: image.height(),
 				marginTop: -(image.height() / 2) - borderWidth,
 				marginLeft: -(image.width() / 2) - borderWidth
-			}, 200, function() {
+			}, 100, function() {
 				show(image);
 			});
 
 			function show(image) {
+				zoomContent.html(image);
 				image.show();
 				zoomContent.removeClass('loading');
 			}
@@ -94,7 +97,7 @@
 		zoomedIn = false;
 		openedImage = null;
 		zoom.hide();
-		$('body').removeClass('zoomed');
+		body.removeClass('zoomed');
 		zoomContent.empty();
 	}
 	
