@@ -77,7 +77,7 @@
 	function openPrevious() {
 		var prev = openedImage.parent('div').prev();
 		if (prev.length == 0) {
-			prev = $('.gallery div:last-child');
+			prev = openedImage.parent('div').parent('.gallery').children( 'div:last-child' );
 		}
 		prev.find('a').trigger('click');
 	}
@@ -85,7 +85,7 @@
 	function openNext() {
 		var next = openedImage.parent('div').next();
 		if (next.length == 0) {
-			next = $('.gallery div:first-child');
+			next = openedImage.parent('div').parent('.gallery').children( 'div:first-child' );
 		}
 		next.children('a').trigger('click');
 	}
